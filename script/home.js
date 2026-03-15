@@ -1,9 +1,19 @@
 console.log("Home page initialized.");
 
+function setActiveButton(activeId) {
+    document.getElementById('all-btn').className = 'btn btn-outline btn-ghost btn-primary';
+    document.getElementById('open-btn').className = 'btn btn-outline btn-ghost btn-primary';
+    document.getElementById('closed-btn').className = 'btn btn-outline btn-ghost btn-primary';
+    document.getElementById(activeId).className = 'btn btn-primary';
+}
+
 function loadAll(){
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res=>res.json())
-    .then(data=>displayAll(data.data))
+    .then(data=>{
+        displayAll(data.data);
+        setActiveButton('all-btn');
+    })
 }
 
 function loadOpen(){
@@ -12,6 +22,7 @@ function loadOpen(){
     .then(data=>{
         const openIssues = data.data.filter(issue => issue.status === 'open');
         displayAll(openIssues);
+        setActiveButton('open-btn');
     })
 }
 
@@ -21,6 +32,7 @@ function loadClosed(){
     .then(data=>{
         const closedIssues = data.data.filter(issue => issue.status === 'closed');
         displayAll(closedIssues);
+        setActiveButton('closed-btn');
     })
 }
 
@@ -51,7 +63,7 @@ const displayAll=(data)=>{
     data.forEach(issue => {
         const card=document.createElement('div');
         card.innerHTML=`
-                  <div class="card shadow-sm rounded-md border-t-4 border-t-[#00A96E] bg-[#FFFFFF] p-4 min-h-80">
+                  <div class="card shadow-sm rounded-md border-t-4 ${issue.status === 'open' ? 'border-t-[#00A96E]' : 'border-t-[#A855F7]'} bg-[#FFFFFF] p-4 min-h-80">
                 <div class=" flex items-center justify-between ">
                     <img src="${issue.status === 'open' ? './assets/Open-Status.png' : './assets/Closed- Status .png'}" alt="">
                     <button class="btn btn-soft ${issue.priority === 'high' ? 'btn-error' : issue.priority === 'medium' ? 'btn-warning' : ''} rounded-full px-6">${issue.priority === 'high' ? 'High' : issue.priority === 'medium' ? 'Medium' : 'Low'}</button>
@@ -88,3 +100,4 @@ const displayAll=(data)=>{
         cardContainer.appendChild(card);
     });
 }
+loadAll();
