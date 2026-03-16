@@ -1,128 +1,31 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
+1️⃣ Difference between var, let, and const
 
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
+In JavaScript, var, let, and const are used to declare variables, but they differ in scope, redeclaration, and reassignment behavior.
 
----
+var is the traditional way of declaring variables in JavaScript. It has function scope, meaning the variable is accessible throughout the entire function in which it is declared. Variables declared with var can be redeclared and reassigned, which can sometimes lead to unexpected behavior in larger programs.
 
-# Assignment-05: GitHub Issues Tracker
+let was introduced in ES6 and provides block scope, meaning the variable only exists within the block {} where it is declared, such as inside loops or conditional statements. Variables declared with let can be reassigned but cannot be redeclared in the same scope. This makes it safer and more predictable than var.
 
+const was also introduced in ES6 and is used for variables whose values should not change after they are assigned. Like let, it has block scope. Variables declared with const cannot be reassigned or redeclared, although if the variable holds an object or array, its internal properties can still be modified.
 
-### **API Endpoints:**
-###  **All Issues:** 
-  - https://phi-lab-server.vercel.app/api/v1/lab/issues 
+2️⃣ What is the Spread Operator (...)
 
+The spread operator (...) is a feature in modern JavaScript that allows an iterable object such as an array or object to be expanded into individual elements. It is commonly used to copy arrays or objects, merge multiple arrays or objects, and pass multiple values into functions. The spread operator helps make code more concise and easier to read.
 
-###  **Single Issue:**
-   - https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
+3️⃣ Difference between map(), filter(), and forEach()
 
-   - Example: https://phi-lab-server.vercel.app/api/v1/lab/issue/33
+map(), filter(), and forEach() are array methods used to iterate over elements in an array, but each serves a different purpose.
 
+The map() method is used when you want to transform or modify every element of an array. It processes each element and returns a new array containing the transformed values.
 
-###  **Search Issue:** https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}
+The filter() method is used when you want to select specific elements from an array based on a condition. It returns a new array containing only the elements that satisfy the given condition.
 
-   - Example:  https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
+The forEach() method is used to execute a function for each element in an array. Unlike map() and filter(), it does not return a new array and is mainly used for performing operations such as logging or updating external variables.
 
+4️⃣ What is an Arrow Function
 
----
+An arrow function is a shorter and more concise way to write functions in JavaScript. It was introduced in ES6 and uses the => syntax. Arrow functions help make code cleaner and easier to read. One important characteristic of arrow functions is that they do not create their own this context; instead, they inherit this from the surrounding scope, which is particularly useful in modern JavaScript development.
 
-## 📝 Main Requirements
+5️⃣ What are Template Literals
 
-## 🎨 Design Part
-
-## Login Page
-- Create a login page containing a logo, title, and sub-title
-- Below that, there will be 2 inputs, a sign-in button, and a demo credential to sign in. Follow the Figma for this page 
-- Styled as per Figma
-
-## Main Page: 
-
-### Navbar: 
-
-- Navbar with website logo/name on the left
-- Search input and button on the right
-
-### Tab Section like Figma: 
-
-- 3 tab ( All, Open, Closed) at the top of this section.(**All**, **Open**, **Closed**)
-
-- Below the tab, there will be an icon, the issue count, some text on the left, and an open and closed marker on the right
-
-- Responsiveness: The website should be responsive for mobile devices. It is totally up to you. 
-
-
---- 
-
-
-## ⚙️ Functionalities
-- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
-
-- Load all issues and display as per Figma
-
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data 
-
-- Each card shows:
-  - Title
-  - Description
-  - Status 
-  - Author
-  - Priority
-  - Label
-  - CreatedAt
-- Clicking on an issue  card will open a modal and show all the information about that Issue. 
-
-### 🚀 Challenges
-
-
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
-
-- Loading spinner on data load
-
-- Show active button on changing category names
-
-- Implement Search Functionality and 8 meaningful github commit.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
-    - 1️⃣ What is the difference between var, let, and const?
-    - 2️⃣ What is the spread operator (...)?
-    - 3️⃣ What is the difference between map(), filter(), and forEach()?
-    - 4️⃣ What is an arrow function?
-    - 5️⃣ What are template literals?
-
-
----
-
-## 🛠️ Technology Stack
-
-- **HTML**
-- **CSS** (Vanilla/Tailwind/DaisyUI)
-- **JavaScript** (Vanilla)
-
----
-
-## 🔑 Demo Credentials
-
-```text
-Username: admin
-Password: admin123
-```
-
-
----
-
-### Optional: 
- - No need to show status: Open, Closed styles On modals. 
- - No Need to show icon on labels 
- - No need to apply styles on Priority 
---- 
-
-
-## 📤 What to submit
-
-- **GitHub Repository Link:**
-- **Live Site Link:**
-
----
-
-
+Template literals are a modern way to create and work with strings in JavaScript. They were introduced in ES6 and use backticks ( ) instead of single or double quotation marks. Template literals allow string interpolation, which means variables and expressions can be embedded directly inside a string. They also support multi-line strings, making it easier to write long or formatted text.
