@@ -24,7 +24,8 @@
 </head>
 
 <body class="bg-[#F8FAFC] min-h-screen">
-    <nav class="flex flex-col sm:flex-row items-center justify-between p-4 sm:p-6 bg-[#FFFFFF] shadow-md gap-4 sm:gap-0">
+    <nav
+        class="flex flex-col sm:flex-row items-center justify-between p-4 sm:p-6 bg-[#FFFFFF] shadow-md gap-4 sm:gap-0">
         <div class="flex flex-col sm:flex-row items-center gap-2">
             <img src="./assets/github-logo.png" alt="" class="w-9 h-9">
             <p class="text-xl sm:text-2xl font-semibold">GitHub Issues Tracker</p>
@@ -45,7 +46,7 @@
     </nav>
     <section class="">
         <div
-            class="flex flex-wrap items-center justify-start gap-2 sm:gap-4 px-4 sm:px-6 py-4 bg-[#FFFFFF] mt-15 w-10/12 mx-auto rounded-sm shadow-sm " >
+            class="flex flex-wrap items-center justify-start gap-2 sm:gap-4 px-4 sm:px-6 py-4 bg-[#FFFFFF] mt-15 w-10/12 mx-auto rounded-sm shadow-sm ">
             <button id="all-btn" class="btn btn-primary" onclick="loadAll()">All</button>
             <button id="open-btn" class="btn btn-outline btn-ghost btn-primary" onclick="loadOpen()">Open</button>
             <button id="closed-btn" class="btn btn-outline btn-ghost btn-primary" onclick="loadClosed()">Closed</button>
@@ -95,6 +96,12 @@
         </div>
 
     </section>
+    <!-- Modal for issue details -->
+    <div id="word_modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;" onclick="closeModal()">
+        <div id="details-container" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:20px; border-radius:10px; max-width:600px; width:90%;" onclick="event.stopPropagation()">
+            <!-- Issue details will be loaded here -->
+        </div>
+    </div>
     <script src="./script/home.js"></script>
 </body>
 
